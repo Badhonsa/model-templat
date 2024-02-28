@@ -1,0 +1,27 @@
+   body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f9fa; /* Set your background color */
+        }
+
+        .footer {
+            background-color: #343a40; /* Set your footer background color */
+            color: #ffffff; /* Set your footer text color */
+            padding: 2rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -50px; /* Adjust the height of the 3D effect */
+            left: 0;
+            right: 0;
+            height: 50px; /* Adjust the height of the 3D effect */
+            background-color: #343a40; /* Match the background color of the footer */
+            transform: skewY(-2deg);
+            z-index: -1;
+        }

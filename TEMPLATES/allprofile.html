@@ -1,0 +1,45 @@
+<!-- navbar.html -->
+
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="row">
+        {% for human in human %}
+            <div class="col-md-4 mb-4">
+                <div class="card bg-light text-dark custom-card" style="height:500px;">
+                    <div class="card-header bg-primary text-white">
+                        <h3>User Profile</h3>
+                    </div>
+                    <div class="card-body text-center">
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Name:</strong> {{ human.name }}</li>
+                            <li class="list-group-item"><strong>Email:</strong> {{ human.email }}</li>
+                            <li class="list-group-item"><strong>Age:</strong> {{ human.age }}</li>
+                            <li class="list-group-item"><strong>Gender:</strong> {{ human.gender }}</li>
+                            <li class="list-group-item"><strong>Address:</strong> {{ human.address }}</li>
+                        </ul>
+                        {% if human.image %}
+                            <img style="height:100px; width:200px" src="{{ human.image.url }}" class="card-img-top mb-3" alt="{{ def.jpg }}">
+                        {% endif %}
+                    </div>
+                    <div class="card-footer">
+
+                        <a href="{% url 'update' human.id %}" class="btn btn-warning float-left">Update</a>
+                       <a href="{% url 'delete_prof' human.id %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .custom-card:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transform: scale(1.05);
+    }
+</style>
+
+{% endblock %}
